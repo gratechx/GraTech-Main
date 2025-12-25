@@ -1,0 +1,34 @@
+# Simple Starter Pipeline - GraTech
+# Basic build and test
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "🚀 Starting GraTech Pipeline..."
+    displayName: 'Welcome'
+
+  - script: |
+      echo "Repository: $(Build.Repository.Name)"
+      echo "Branch: $(Build.SourceBranchName)"
+      echo "Build ID: $(Build.BuildId)"
+    displayName: 'Show Build Info'
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.11'
+    displayName: 'Use Python 3.11'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    displayName: 'Install dependencies'
+    condition: exists('requirements.txt')
+
+  - script: |
+      echo "✅ Build completed!"
+      echo "Next: Add Docker build and Azure deployment"
+    displayName: 'Success Message'
