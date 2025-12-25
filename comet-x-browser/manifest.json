@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Comet-X Browser",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "description": "Local-First AI Browser - سيادة رقمية كاملة 🇸🇦",
   "author": "Sulaiman Alshammari (@Grar00t)",
   
@@ -92,7 +92,7 @@
   },
   
   "comet_x_config": {
-    "version": "0.1.0-alpha",
+    "version": "0.1.0",
     "build": "202512250001",
     "architecture": "tri-lobe",
     "privacy": "local-first",
