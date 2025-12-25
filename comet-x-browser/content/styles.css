@@ -1,0 +1,13 @@
+/* 🎨 Comet-X Content Styles */
+
+/* Ensure no conflicts with page styles */
+#comet-x-orb-host,
+#comet-x-sidebar-host {
+  all: initial;
+}
+
+/* Additional global resets if needed */
+#comet-x-orb-host *,
+#comet-x-sidebar-host * {
+  box-sizing: border-box;
+}
