@@ -1,0 +1,114 @@
+{
+  "manifest_version": 3,
+  "name": "Comet-X Browser",
+  "version": "0.1.0-alpha",
+  "description": "Local-First AI Browser - سيادة رقمية كاملة 🇸🇦",
+  "author": "Sulaiman Alshammari (@Grar00t)",
+  
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_title": "Comet-X",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png"
+    }
+  },
+  
+  "background": {
+    "service_worker": "background/worker.js",
+    "type": "module"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/injector.js"],
+      "css": ["content/styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "webRequest",
+    "webNavigation",
+    "contextMenus",
+    "notifications",
+    "identity"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "models/*",
+        "ui/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  
+  "options_page": "options/index.html",
+  
+  "side_panel": {
+    "default_path": "sidepanel/index.html"
+  },
+  
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
+      },
+      "description": "Open Comet-X"
+    },
+    "quick-ask": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Quick AI Ask"
+    }
+  },
+  
+  "chrome_url_overrides": {
+    "newtab": "newtab/index.html"
+  },
+  
+  "comet_x_config": {
+    "version": "0.1.0-alpha",
+    "build": "202512250001",
+    "architecture": "tri-lobe",
+    "privacy": "local-first",
+    "sync": "p2p",
+    "models": {
+      "enabled": ["local-llama", "local-phi", "onnx-gpt"],
+      "fallback": "none",
+      "cloud": "disabled"
+    },
+    "storage": {
+      "type": "indexeddb",
+      "encryption": "aes-256-gcm",
+      "backup": "local"
+    },
+    "telemetry": "disabled",
+    "analytics": "disabled",
+    "tracking": "disabled"
+  }
+}

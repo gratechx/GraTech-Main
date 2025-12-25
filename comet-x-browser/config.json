@@ -1,0 +1,305 @@
+{
+  "name": "Comet-X Configuration",
+  "version": "0.1.0-alpha",
+  "last_updated": "2025-12-25",
+  
+  "philosophy": {
+    "bias": "zero",
+    "privacy": "local-first",
+    "sovereignty": "complete",
+    "description": "ذكاء اصطناعي محايد 100% - لا انحياز لأي أمة، دين، أو سياسة"
+  },
+  
+  "three_lobe_architecture": {
+    "executive": {
+      "role": "Coordinator",
+      "responsibilities": [
+        "Event routing",
+        "Decision making",
+        "Lifecycle management",
+        "Memory orchestration"
+      ],
+      "keep_alive": true,
+      "heartbeat_interval": 30
+    },
+    "sensory": {
+      "role": "Protection & Perception",
+      "responsibilities": [
+        "Input filtering",
+        "Bias detection",
+        "XSS prevention",
+        "DOM analysis",
+        "Privacy enforcement"
+      ],
+      "filters": {
+        "xss": true,
+        "injection": true,
+        "privacy": true,
+        "bias": true,
+        "malware": true
+      }
+    },
+    "cognitive": {
+      "role": "Intelligence & Reasoning",
+      "responsibilities": [
+        "Smart routing",
+        "Text generation",
+        "Context understanding",
+        "Neutrality enforcement"
+      ],
+      "router": {
+        "enabled": true,
+        "rules": {
+          "arabic": "claude-opus-4-5",
+          "code": "gpt-4",
+          "analysis": "deepseek-r1",
+          "default": "local-phi-3"
+        }
+      }
+    }
+  },
+  
+  "models": {
+    "local": {
+      "primary": {
+        "name": "local-phi-3",
+        "path": "models/phi-3-mini-4k",
+        "type": "transformers",
+        "size": "3.8B",
+        "languages": ["ar", "en"],
+        "description": "Phi-3 Mini - سريع ومحسّن للأجهزة الشخصية",
+        "quantization": "int8",
+        "max_tokens": 4096
+      },
+      "fallback": {
+        "name": "local-gemma-2b",
+        "path": "models/gemma-2b",
+        "type": "transformers",
+        "size": "2B",
+        "languages": ["en"],
+        "description": "Gemma 2B - خفيف جداً للأجهزة الضعيفة"
+      },
+      "embedding": {
+        "name": "all-MiniLM-L6-v2",
+        "path": "models/all-MiniLM-L6-v2",
+        "type": "sentence-transformers",
+        "dimensions": 384,
+        "description": "نموذج Embeddings سريع ودقيق"
+      }
+    },
+    "cloud": {
+      "enabled": false,
+      "fallback_only": true,
+      "models": {
+        "gpt-4o": {
+          "provider": "azure-openai",
+          "endpoint": "http://localhost:8000/api/chat",
+          "description": "للمهام المعقدة فقط"
+        },
+        "claude-opus-4-5": {
+          "provider": "azure-foundry",
+          "endpoint": "http://localhost:8000/api/chat",
+          "description": "للبرمجة والتحليل العميق"
+        }
+      }
+    }
+  },
+  
+  "memory": {
+    "structural": {
+      "episodic": {
+        "enabled": true,
+        "storage": "indexeddb",
+        "store_name": "episodic",
+        "max_items": 10000,
+        "retention_days": 90,
+        "importance_threshold": 0.3
+      },
+      "semantic": {
+        "enabled": true,
+        "storage": "indexeddb",
+        "store_name": "semantic",
+        "max_items": 5000,
+        "extraction": "automatic",
+        "knowledge_graph": true
+      },
+      "procedural": {
+        "enabled": true,
+        "storage": "indexeddb",
+        "store_name": "procedural",
+        "max_items": 1000
+      }
+    },
+    "vector_search": {
+      "engine": "orama",
+      "hybrid": true,
+      "dimensions": 384,
+      "similarity": "cosine",
+      "top_k": 5,
+      "reranking": true
+    },
+    "cleanup": {
+      "enabled": true,
+      "interval_days": 7,
+      "keep_important": true,
+      "importance_threshold": 0.7
+    }
+  },
+  
+  "privacy": {
+    "local_only": true,
+    "no_telemetry": true,
+    "no_analytics": true,
+    "no_tracking": true,
+    "encryption": {
+      "at_rest": true,
+      "algorithm": "AES-256-GCM",
+      "key_derivation": "PBKDF2"
+    },
+    "p2p_sync": {
+      "enabled": false,
+      "encryption": "end-to-end",
+      "protocol": "webrtc",
+      "discovery": "manual"
+    },
+    "data_export": {
+      "enabled": true,
+      "formats": ["json", "csv"],
+      "includes_vectors": false
+    }
+  },
+  
+  "neutrality": {
+    "bias_detection": {
+      "enabled": true,
+      "aggressive": true,
+      "categories": [
+        "political",
+        "religious",
+        "ethnic",
+        "cultural",
+        "gender"
+      ]
+    },
+    "bias_removal": {
+      "enabled": true,
+      "auto_neutralize": true,
+      "log_removals": true
+    },
+    "neutrality_score": {
+      "target": 0.0,
+      "threshold": 0.1,
+      "monitoring": true
+    }
+  },
+  
+  "ui": {
+    "theme": {
+      "primary_color": "#1ABC9C",
+      "background": "#05261F",
+      "text": "#FFFFFF",
+      "accent": "#16a085",
+      "mode": "dark"
+    },
+    "language": {
+      "default": "ar",
+      "rtl": true,
+      "supported": ["ar", "en"]
+    },
+    "components": {
+      "orb": {
+        "enabled": true,
+        "size": 60,
+        "position": "bottom-right",
+        "pulse": true
+      },
+      "sidebar": {
+        "enabled": true,
+        "width": 400,
+        "position": "right"
+      },
+      "newtab": {
+        "enabled": true,
+        "override": true
+      }
+    }
+  },
+  
+  "performance": {
+    "service_worker": {
+      "keep_alive": true,
+      "heartbeat_interval": 30,
+      "max_idle_time": 300
+    },
+    "offscreen_document": {
+      "enabled": true,
+      "audio": true,
+      "compute": true
+    },
+    "lazy_loading": {
+      "models": true,
+      "ui_components": true
+    },
+    "caching": {
+      "models": true,
+      "embeddings": true,
+      "responses": false
+    }
+  },
+  
+  "development": {
+    "debug": false,
+    "console_logging": true,
+    "performance_monitoring": true,
+    "error_reporting": "local",
+    "hot_reload": false
+  },
+  
+  "features": {
+    "chat": true,
+    "summarization": true,
+    "translation": false,
+    "voice_input": false,
+    "voice_output": false,
+    "context_menu": true,
+    "page_analysis": true,
+    "smart_suggestions": true
+  },
+  
+  "limits": {
+    "max_context_length": 4096,
+    "max_response_length": 2048,
+    "max_memory_items": 10000,
+    "max_vector_dimensions": 384,
+    "rate_limit": {
+      "requests_per_minute": 60,
+      "tokens_per_minute": 100000
+    }
+  },
+  
+  "manifest_v3": {
+    "compatible": true,
+    "service_worker": true,
+    "offscreen_capable": true,
+    "storage": {
+      "session": true,
+      "local": true,
+      "indexeddb": true
+    },
+    "permissions": [
+      "storage",
+      "unlimitedStorage",
+      "tabs",
+      "contextMenus",
+      "notifications"
+    ]
+  },
+  
+  "vision_2030": {
+    "aligned": true,
+    "saudi_first": true,
+    "arabic_native": true,
+    "cultural_awareness": true,
+    "local_deployment": true
+  }
+}

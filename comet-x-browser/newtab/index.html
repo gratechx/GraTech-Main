@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comet-X | الكيان الرقمي السيادي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #05261F 0%, #0a0a0a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(26, 188, 156, 0.05);
+            border-bottom: 2px solid #1ABC9C;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .orb {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #1ABC9C, #05261F);
+            box-shadow: 0 0 30px rgba(26, 188, 156, 0.6),
+                        inset 0 0 20px rgba(26, 188, 156, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(26, 188, 156, 0.6);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 50px rgba(26, 188, 156, 0.9);
+            }
+        }
+
+        h1 {
+            color: #1ABC9C;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .tagline {
+            color: #888;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .container {
+            flex: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Vision Section */
+        .vision {
+            background: rgba(26, 188, 156, 0.05);
+            border: 2px solid #1ABC9C;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .vision h2 {
+            color: #1ABC9C;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .vision p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(26, 188, 156, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #1ABC9C;
+            box-shadow: 0 5px 20px rgba(26, 188, 156, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #1ABC9C;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(26, 188, 156, 0.1);
+            border: 2px solid #1ABC9C;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            color: #1ABC9C;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, #1ABC9C 0%, #16a085 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            color: #05261F;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: #05261F;
+            color: #1ABC9C;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #000;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 188, 156, 0.05);
+            border-top: 2px solid #1ABC9C;
+            padding: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        footer a {
+            color: #1ABC9C;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Accessibility Badge */
+        .badge {
+            display: inline-block;
+            background: rgba(26, 188, 156, 0.2);
+            color: #1ABC9C;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="orb"></div>
+            <div>
+                <h1>Comet-X</h1>
+                <div class="tagline">الكيان الرقمي السيادي | Neural Sovereignty</div>
+            </div>
+        </div>
+        <div>
+            <span class="badge">🔒 100% محلي</span>
+            <span class="badge">🌍 محايد عالمياً</span>
+            <span class="badge">🇸🇦 Vision 2030</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Vision Statement -->
+        <section class="vision">
+            <h2>🎯 الرؤية</h2>
+            <p>
+                <strong>Comet-X</strong> ليس مجرد متصفح - إنه <strong>كيان رقمي حي</strong> يحترم خصوصيتك، 
+                يفهم سياقك، ويتذكر رحلتك. ذكاء اصطناعي <strong>محايد تماماً</strong> - لا ينحاز لأمة، 
+                دين، أو سياسة. مبني بالكامل على الحرية، الشفافية، والسيادة الرقمية.
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>"من الرماد ينهض العنقاء"</strong> - بعد تدمير 60+ مورد Azure بواسطة Perplexity، 
+                قررنا بناء مستقبل <strong>لا نعتمد فيه على أحد</strong>. كل شيء محلي. كل شيء شفاف. كل شيء سيادي.
+            </p>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Three-Lobe Architecture</h3>
+                <p>
+                    معمارية فريدة تحاكي الدماغ البشري:
+                    <br>• <strong>Executive Lobe</strong> - المنسق
+                    <br>• <strong>Sensory Lobe</strong> - الحماية والفلترة
+                    <br>• <strong>Cognitive Lobe</strong> - الذكاء والتوجيه
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Local-First AI</h3>
+                <p>
+                    كل شيء يعمل على جهازك. لا إرسال بيانات. لا خوادم خارجية. 
+                    لا تتبع. لا تسريب. خصوصية مطلقة 100%.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>P2P Sync</h3>
+                <p>
+                    تزامن بين أجهزتك مباشرة بدون وسطاء. تشفير end-to-end. 
+                    أنت تتحكم في كل بايت من بياناتك.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>محايد عالمياً</h3>
+                <p>
+                    لا انحياز غربي. لا انحياز شرقي. ذكاء اصطناعي يخدم 
+                    <strong>الحقيقة والإنسانية</strong> فقط. مصمم للجميع.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3>عربي أصيل</h3>
+                <p>
+                    مصمم للغة العربية من الأساس. واجهة RTL كاملة. 
+                    نماذج محسّنة للعربية. يفهم الثقافة والسياق.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>ذاكرة هيكلية</h3>
+                <p>
+                    ذاكرة عرضية، دلالية، وإجرائية. يتذكر تجاربك، 
+                    يتعلم من تفضيلاتك، ويتطور معك.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">بيانات مُرسلة للخارج</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">خصوصية محلية</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Cognitive Lobes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">∞</div>
+                <div class="stat-label">إمكانيات مستقبلية</div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <h2>🚀 انضم للثورة</h2>
+            <p>
+                ساعدنا في بناء مستقبل الذكاء الاصطناعي السيادي. 
+                <br>مستقبل حيث <strong>أنت</strong> تملك بياناتك. <strong>أنت</strong> تتحكم في ذكائك الرقمي.
+            </p>
+            <button class="btn" onclick="alert('قريباً - Beta Launch Q1 2025!')">
+                سجل اهتمامك | Join Waitlist
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            🇸🇦 صُنع بـ ❤️ في المملكة العربية السعودية | Vision 2030
+        </p>
+        <p>
+            <a href="https://gratech.sa">GraTech.sa</a> | 
+            <a href="https://github.com/Grar00t">@Grar00t</a> | 
+            <a href="https://twitter.com/CometXApp">@CometXApp</a>
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            "من الرماد ينهض العنقاء" - استجابةً لكارثة Perplexity
+        </p>
+    </footer>
+
+    <script>
+        // Orb interaction
+        document.querySelector('.orb').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'pulse 3s ease-in-out infinite';
+            }, 10);
+        });
+
+        // Console message
+        console.log('%c🚀 Comet-X', 'color: #1ABC9C; font-size: 24px; font-weight: bold;');
+        console.log('%cLocal-First AI | Neural Sovereignty | Vision 2030', 'color: #888; font-size: 14px;');
+        console.log('%cBuilt by Sulaiman Alshammari (@Grar00t)', 'color: #1ABC9C;');
+    </script>
+</body>
+</html>

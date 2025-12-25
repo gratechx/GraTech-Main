@@ -1,0 +1,97 @@
+# ============================================================================
+# GraTech Platform + Comet-X - Complete Requirements
+# Backend API + Local AI Engine
+# ============================================================================
+
+# ============================================================================
+# Core Backend (FastAPI)
+# ============================================================================
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+python-dotenv==1.0.1
+
+# ============================================================================
+# HTTP Clients
+# ============================================================================
+httpx==0.27.2
+aiohttp==3.10.10
+requests==2.32.3
+
+# ============================================================================
+# Azure SDK
+# ============================================================================
+azure-identity==1.19.0
+azure-ai-inference==1.0.0b6
+openai==1.54.5
+
+# ============================================================================
+# Local AI Engine (for Comet-X Python backend)
+# ============================================================================
+
+# Transformers & Model Inference
+transformers==4.46.3
+torch==2.5.1
+# For ONNX Runtime (faster inference)
+onnxruntime==1.20.1
+onnxruntime-gpu==1.20.1  # Optional: if you have NVIDIA GPU
+
+# Embeddings & Vector Search
+sentence-transformers==3.3.1
+faiss-cpu==1.9.0
+# faiss-gpu==1.9.0  # Optional: for GPU acceleration
+
+# ============================================================================
+# Data Processing
+# ============================================================================
+numpy==2.1.3
+pandas==2.2.3
+
+# ============================================================================
+# Testing & Development
+# ============================================================================
+pytest==8.3.3
+pytest-asyncio==0.24.0
+black==24.10.0
+flake8==7.1.1
+
+# ============================================================================
+# Monitoring & Logging
+# ============================================================================
+python-json-logger==3.1.0
+
+# ============================================================================
+# Optional: Advanced Features
+# ============================================================================
+
+# Speech Recognition (if implementing audio features)
+# speechrecognition==3.10.0
+# pyttsx3==2.98  # Text-to-Speech
+
+# PDF Processing (if needed)
+# pypdf2==3.0.1
+# pdfplumber==0.11.4
+
+# Database (if extending beyond IndexedDB)
+# sqlalchemy==2.0.35
+# asyncpg==0.30.0
+
+# ============================================================================
+# Platform-Specific
+# ============================================================================
+
+# Windows
+# pywin32==308  # Uncomment if on Windows and need system integration
+
+# ============================================================================
+# Notes
+# ============================================================================
+
+# Installation:
+# pip install -r requirements.txt
+
+# For development:
+# pip install -r requirements.txt -r requirements-dev.txt
+
+# For production (minimal):
+# pip install -r requirements-prod.txt

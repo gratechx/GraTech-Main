@@ -1,0 +1,46 @@
+{
+  "models": {
+    "gpt-4o": {
+      "provider": "azure-openai",
+      "endpoint": "https://gratech-aoai.openai.azure.com/",
+      "deployment": "gpt-4o",
+      "apiVersion": "2024-08-01-preview",
+      "region": "uaenorth",
+      "description": "GPT-4o - الأفضل للإنتاج والمحادثات المعقدة"
+    },
+    "gpt-4.1": {
+      "provider": "azure-openai",
+      "endpoint": "https://gratech-aoai.openai.azure.com/",
+      "deployment": "gpt-4-1",
+      "apiVersion": "2024-08-01-preview",
+      "region": "uaenorth",
+      "description": "GPT-4.1 - قوي ومستقر للمهام الإنتاجية"
+    },
+    "claude-opus-4-5": {
+      "provider": "azure-foundry",
+      "endpoint": "https://alshammaris-2770-resource.services.ai.azure.com/api/projects/alshammaris-2770",
+      "deployment": "claude-opus-4-5",
+      "apiVersion": "2025-11-15-preview",
+      "region": "eastus2",
+      "description": "Claude Opus 4.5 - الأذكى للبرمجة والتحليل المعقد"
+    },
+    "deepseek-r1": {
+      "provider": "azure-foundry",
+      "endpoint": "https://alshammaris-2770-resource.services.ai.azure.com/api/projects/alshammaris-2770",
+      "deployment": "DeepSeek-R1-0528",
+      "apiVersion": "2025-11-15-preview",
+      "region": "eastus2",
+      "description": "DeepSeek R1 - متخصص في البحث والاستدلال المنطقي"
+    },
+    "o3-mini": {
+      "provider": "azure-openai",
+      "endpoint": "https://gratech-aoai.openai.azure.com/",
+      "deployment": "o3-mini",
+      "apiVersion": "2024-08-01-preview",
+      "region": "uaenorth",
+      "description": "O3-mini - سريع واقتصادي للمهام البسيطة"
+    }
+  },
+  "default": "gpt-4o",
+  "fallback": "gpt-4.1"
+}
