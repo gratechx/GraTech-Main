@@ -1,0 +1,12 @@
+.vs/
+.vscode/
+*.log
+__pycache__/
+*.pyc
+.git/
+.gitignore
+evidence/
+docs/
+*.md
+.env.production
+node_modules/
